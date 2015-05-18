@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/buttons.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/leds.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/app_host_hid_keyboard.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/adc.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/main.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/app_host_hid_keyboard.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/lcd.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/usb_common.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/system_config.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/lcd.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/src/usb_host.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/usb_host_hid_parser.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/print_lcd.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/system_config/exp16/pic24fj64gb004_pim/io_mapping.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/src/usb_hal_pic24.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/system_config/exp16/pic24fj64gb004_pim/system.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/usb_host_hid.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/system_config/exp16/pic24fj64gb004_pim/system.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/usb.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/timer_1ms.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/usb_ch9.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/usb_config.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/bsp/exp16/pic24fj64gb004_pim/timer_1ms.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/src/usb_host_hid.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/usb_host.h</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/framework/usb/src/usb_host_hid_parser.c</file>
+            <file>file:/C:/microchip/mla/v2014_07_22/apps/usb/host/hid_keyboard/firmware%20-%20Copy/src/usb_config.h</file>
+        </group>
+    </open-files>
+</project-private>
