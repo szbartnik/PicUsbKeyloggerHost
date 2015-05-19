@@ -26,7 +26,6 @@
 #include <xc.h>
 #include <stdbool.h>
 
-//#include <print_lcd.h>
 #include <timer_1ms.h>
 #include <buttons.h>
 #include <leds.h>
@@ -34,6 +33,13 @@
 #include <io_mapping.h>
 
 #define MAIN_RETURN int
+
+// Definition for system clock
+#define SYS_CLK_FrequencySystemGet()        8000000
+// Definition for peripheral clock
+#define SYS_CLK_FrequencyPeripheralGet()    SYS_CLK_FrequencySystemGet()
+// Definition for instruction clock
+#define SYS_CLK_FrequencyInstructionGet()   (SYS_CLK_FrequencySystemGet() / 2)
 
 /*** System States **************************************************/
 typedef enum
@@ -55,6 +61,15 @@ typedef enum
 *
 ********************************************************************/
 void SYSTEM_Initialize( SYSTEM_STATE state );
+
+// User-defined function to set the chip select for our example drive
+void USER_SdSpiSetCs_1 (uint8_t a);
+// User-defined function to get the card detection status for our example drive
+bool USER_SdSpiGetCd_1 (void);
+// User-defined function to get the write-protect status for our example drive
+bool USER_SdSpiGetWp_1 (void);
+// User-defined function to initialize tristate bits for CS, CD, and WP
+void USER_SdSpiConfigurePins_1 (void);
 
 /*********************************************************************
 * Function: void SYSTEM_Tasks(void)

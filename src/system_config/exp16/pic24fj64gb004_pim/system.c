@@ -83,6 +83,9 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
     //power up the PLL.
     {
         unsigned int pll_startup_counter = 600;
+        
+        AD1PCFGL = 0xFFFF;
+        
         CLKDIVbits.PLLEN = 1;
         while(pll_startup_counter--);
     }
@@ -105,6 +108,34 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
 
             break;
     }
+}
+
+void USER_SdSpiConfigurePins_1 (void)
+{
+    //Initialize the SPI
+    RPINR20bits.SDI1R = 15;  // data  input
+    RPOR6bits.RP13R = 7;     // data  output
+    RPOR7bits.RP14R = 8;     // clock output
+    
+    // Deassert the chip select pin
+    LATBbits.LATB9 = 1;
+    // Configure CS pin as an output
+    TRISBbits.TRISB9 = 0;
+}
+
+inline void USER_SdSpiSetCs_1(uint8_t a)
+{
+    LATBbits.LATB9 = a;
+}
+
+inline bool USER_SdSpiGetCd_1(void)
+{
+    return true;
+}
+
+inline bool USER_SdSpiGetWp_1(void)
+{
+    return false;
 }
 
 void __attribute__((interrupt,auto_psv)) _USB1Interrupt()

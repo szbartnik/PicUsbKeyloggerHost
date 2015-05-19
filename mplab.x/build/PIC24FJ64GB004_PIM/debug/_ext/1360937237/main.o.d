@@ -1,13 +1,18 @@
 build/PIC24FJ64GB004_PIM/debug/_ext/1360937237/main.o:  \
 ../src/main.c  \
- ../../../../../../framework/usb/usb.h  \
+ ../../../../../../framework/fileio/fileio.h  \
+../src/system_config.h  \
+ ../src/usb_config.h  \
+../src/fileio_config.h  \
+../src/sd_spi_config.h  \
+ ../src/drv_spi_config.h  \
  ../src/system_config/exp16/pic24fj64gb004_pim/system.h  \
  ../../../../../../bsp/exp16/pic24fj64gb004_pim/timer_1ms.h  \
  ../../../../../../bsp/exp16/pic24fj64gb004_pim/buttons.h  \
  ../../../../../../bsp/exp16/pic24fj64gb004_pim/leds.h  \
  ../src/system_config/exp16/pic24fj64gb004_pim/io_mapping.h  \
- ../src/system_config.h  \
-../src/usb_config.h  \
+ ../../../../../../framework/driver/fileio/sd_spi.h  \
+ ../../../../../../framework/usb/usb.h  \
  ../../../../../../framework/usb/usb_common.h  \
  ../../../../../../framework/usb/usb_ch9.h  \
  ../../../../../../framework/usb/usb_host.h  \
