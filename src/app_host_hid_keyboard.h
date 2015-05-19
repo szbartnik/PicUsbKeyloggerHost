@@ -36,6 +36,8 @@
 ********************************************************************/
 void APP_HostHIDKeyboardInitialize();
 
+void Write(const void*, size_t);
+
 /*********************************************************************
 * Function: void APP_HostHIDKeyboardTasks(void);
 *

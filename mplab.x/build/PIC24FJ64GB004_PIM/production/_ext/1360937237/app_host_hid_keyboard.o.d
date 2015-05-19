@@ -18,4 +18,6 @@ build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o:  \
  ../../../../../../framework/usb/usb_hal_pic24f.h  \
  ../../../../../../framework/usb/usb_host_hid.h  \
  ../../../../../../framework/usb/usb_hid.h  \
- ../../../../../../framework/usb/usb_host_hid_parser.h 
+ ../../../../../../framework/usb/usb_host_hid_parser.h  \
+ ../../../../../../framework/fileio/fileio.h  \
+ ../../../../../../framework/driver/fileio/sd_spi.h 

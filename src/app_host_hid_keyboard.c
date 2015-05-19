@@ -21,6 +21,9 @@
  *******************************************************************/
 #include <usb/usb.h>
 #include <usb/usb_host_hid.h>
+#include "fileio/fileio.h"
+#include "driver/fileio/sd_spi.h"
+#include <string.h>
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -238,6 +241,28 @@ void APP_HostHIDKeyboardInitialize()
 * Output: None
 *
 ********************************************************************/
+void Write(const void* buffer, size_t size)
+{
+    FILEIO_OBJECT file;
+    
+    if (FILEIO_Open (&file, "TESTFILE.CSV", FILEIO_OPEN_WRITE | FILEIO_OPEN_READ | FILEIO_OPEN_APPEND | FILEIO_OPEN_CREATE) == FILEIO_RESULT_FAILURE)
+    {
+        return;
+    }
+
+    // Write some sample data to the card
+    if (FILEIO_Write(buffer, 1, size, &file) != size)
+    {
+        return;
+    }
+
+    // Close the file to save the data
+    if (FILEIO_Close (&file) != FILEIO_RESULT_SUCCESS)
+    {
+        return;
+    }
+}
+
 void APP_HostHIDKeyboardTasks()
 {
     uint8_t error;
@@ -572,12 +597,11 @@ static void App_ProcessInputReport(void)
                 if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_ESCAPE)
                 {
                     LED_Toggle(LED_USB_NOTIFY);
-                    //PRINT_ClearScreen();
                 }
                 else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RETURN_ENTER)
                 {
                     LED_Toggle(LED_USB_NOTIFY);
-                    //PRINT_String("\r\n", 2);
+                    Write("\r\n", 2);
                 }
                 else if( (key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_SHIFT) ||
                          (key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_SHIFT)
@@ -590,7 +614,7 @@ static void App_ProcessInputReport(void)
                        )
                 {
                     LED_Toggle(LED_USB_NOTIFY);
-                    //PRINT_Char('\b');
+                    Write("\b", 1);
                 }
                 else if( (key >= USB_HID_KEYBOARD_KEYPAD_KEYBOARD_A) &&
                          (key <= USB_HID_KEYBOARD_KEYPAD_KEYBOARD_Z)
@@ -605,12 +629,12 @@ static void App_ProcessInputReport(void)
                             if( (keyboard.leds.report.bits.capsLock == 1) || (shift == true) )
                             {
                                 LED_Toggle(LED_USB_NOTIFY);
-                                //PRINT_Char(keyTranslationTable[index].modified);
+                                Write(&keyTranslationTable[index].modified, 1);
                             }
                             else
                             {
                                 LED_Toggle(LED_USB_NOTIFY);
-                                //PRINT_Char(keyTranslationTable[index].unmodified);
+                                Write(&keyTranslationTable[index].unmodified, 1);
                             }
                         }
                     }
@@ -626,12 +650,12 @@ static void App_ProcessInputReport(void)
                             if( shift == true )
                             {
                                 LED_Toggle(LED_USB_NOTIFY);
-                                //PRINT_Char(keyTranslationTable[index].modified);
+                                Write(&keyTranslationTable[index].modified, 1);
                             }
                             else
                             {
                                 LED_Toggle(LED_USB_NOTIFY);
-                                //PRINT_Char(keyTranslationTable[index].unmodified);
+                                Write(&keyTranslationTable[index].unmodified, 1);
                             }
                         }
                     }

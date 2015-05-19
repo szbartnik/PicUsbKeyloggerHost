@@ -73,9 +73,6 @@ typedef enum
     DEMO_STATE_FAILED
 } DEMO_STATE;
 
-// Some sample data to write to the file
-uint8_t sampleData[10] = "DATA,10\r\n";
-
 /********************************************************************
  * Function:        void main(void)
  *
@@ -93,15 +90,10 @@ uint8_t sampleData[10] = "DATA,10\r\n";
  *******************************************************************/
 MAIN_RETURN main(void)
 {   
-    DEMO_STATE demoState = DEMO_STATE_NO_MEDIA;
-    FILEIO_OBJECT file;
-    
     SYSTEM_Initialize(SYSTEM_STATE_USB_HOST);
 
     //Initialize the stack
     USBHostInit(0);
-
-    APP_HostHIDKeyboardInitialize();
 
     // Initialize the library
     if (!FILEIO_Initialize())
@@ -113,9 +105,11 @@ MAIN_RETURN main(void)
     {
         if (FILEIO_DriveMount('A', &gSdDrive, &sdCardMediaParameters) == FILEIO_ERROR_NONE)
         {
-            demoState = DEMO_STATE_DRIVE_MOUNTED;
-        }
-    }
+            APP_HostHIDKeyboardInitialize();
+        } else return;
+    } else return;
+    
+    Write("started\r\n", 9);
     
     while(1)
     {
@@ -124,29 +118,6 @@ MAIN_RETURN main(void)
 
         //Application specific tasks
         APP_HostHIDKeyboardTasks();
-        
-        if(demoState == DEMO_STATE_DRIVE_MOUNTED)
-        {
-            if (FILEIO_Open (&file, "TESTFILE.CSV", FILEIO_OPEN_WRITE | FILEIO_OPEN_READ | FILEIO_OPEN_APPEND | FILEIO_OPEN_CREATE) == FILEIO_RESULT_FAILURE)
-            {
-                demoState = DEMO_STATE_FAILED;
-                continue;
-            }
-
-            // Write some sample data to the card
-            if (FILEIO_Write (sampleData, 1, 9, &file) != 9)
-            {
-                demoState = DEMO_STATE_FAILED;
-                continue;
-            }
-
-            // Close the file to save the data
-            if (FILEIO_Close (&file) != FILEIO_RESULT_SUCCESS)
-            {
-                demoState = DEMO_STATE_FAILED;
-                continue;
-            }
-        }
     }//end while
 }//end main
 
