@@ -91,21 +91,21 @@ section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x36a           0x51f  (1311)
 .const                       0x56a               0x180           0x240  (576)
-.text                        0x6ea              0x662a          0x993f  (39231)
-.dinit                      0x6d14                0x94            0xde  (222)
-.text                       0x6da8               0x1da           0x2c7  (711)
+.text                        0x6ea              0x6840          0x9c60  (40032)
+.dinit                      0x6f2a                0x94            0xde  (222)
+.text                       0x6fbe               0x162           0x213  (531)
 
-                     Total program memory used (bytes):         0xa443  (42051) 64%
+                     Total program memory used (bytes):         0xa6b0  (42672) 65%
 
 
 Data Memory  [Origin = 0x800, Length = 0x2000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-_0452C000555a8e94            0x800                   0           0x200  (512)
-_0452C1E0555a8e94            0xa00                   0           0x200  (512)
+_044C1060555d08bb            0x800                   0           0x200  (512)
+_044C1240555d08bb            0xa00                   0           0x200  (512)
 .nbss                        0xc00                   0            0xe8  (232)
-_044FBF60555a8e93            0xce8                   0            0x18  (24)
+_04505000555d08b7            0xce8                   0            0x18  (24)
 .nbss                        0xd00                   0            0x6c  (108)
 .ndata                       0xd6c                   0            0x24  (36)
 .nbss                        0xd90                   0            0x18  (24)
@@ -114,7 +114,7 @@ _044FBF60555a8e93            0xce8                   0            0x18  (24)
 .bss.__allocp                0xdb4                   0             0x2  (2)
 .bss.__alloct                0xdb6                   0             0x2  (2)
 .bss.__curbrk                0xdb8                   0             0x2  (2)
-_045F5D20555a8e93            0xe00                   0            0x10  (16)
+_046A4D80555d08b7            0xe00                   0            0x10  (16)
 .heap                        0xe10                   0           0x7d0  (2000)
 
                         Total data memory used (bytes):          0xd9a  (3482) 42%
@@ -190,8 +190,8 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00022c                  __psv_init
-                  0x00023c                  __data_init_standard
                   0x00023c                  __data_init
+                  0x00023c                  __data_init_standard
                   0x0002d2                  __DefaultInterrupt
                   0x00031a                  ___udivsi3
                   0x00033a                  _malloc
@@ -330,63 +330,64 @@ External Symbols in Program Memory (by address):
                   0x006410                  _Write
                   0x0065e6                  _APP_HostHIDKeyboardTasks
                   0x0066c4                  _APP_HostHIDKeyboardReportParser
-                  0x0068e4                  _LCD_PutChar
-                  0x006958                  _LCD_PutString
-                  0x006978                  _LCD_ClearScreen
-                  0x00699e                  _LCD_Initialize
-                  0x0069dc                  _LCD_CursorEnable
-                  0x0069f8                  _DRV_SPI_Initialize
-                  0x006a7c                  _DRV_SPI_Deinitialize
-                  0x006a84                  _DRV_SPI_Put
-                  0x006a9c                  _DRV_SPI_PutBuffer
-                  0x006af4                  _DRV_SPI_Get
-                  0x006b0c                  _DRV_SPI_GetBuffer
-                  0x006b6c                  _DRV_SPI_Lock
-                  0x006b82                  _DRV_SPI_Unlock
-                  0x006b8a                  _ADC_Read10bit
-                  0x006bb2                  _ADC_ReadPercentage
-                  0x006bd0                  _ADC_ChannelEnable
-                  0x006be8                  _ADC_SetConfiguration
-                  0x006c56                  _TIMER_CancelTick
-                  0x006c60                  _TIMER_RequestTick
-                  0x006c78                  _TIMER_SetConfiguration
-                  0x006cd2                  __T3Interrupt
-                  0x006da8                  _LED_On
-                  0x006dba                  _LED_Off
-                  0x006dcc                  _LED_Toggle
-                  0x006e02                  _LED_Get
-                  0x006e24                  _LED_Enable
-                  0x006e36                  _SYSTEM_Initialize
-                  0x006e52                  _USER_SdSpiConfigurePins_1
-                  0x006e76                  _USER_SdSpiSetCs_1
-                  0x006e86                  _USER_SdSpiGetCd_1
-                  0x006e8a                  _USER_SdSpiGetWp_1
-                  0x006e8e                  __USB1Interrupt
-                  0x006eae                  _main
-                  0x006ee6                  _USB_ApplicationEventHandler
-                  0x006f1a                  _USBSleepOnSuspend
-                  0x006f50                  _BUTTON_IsPressed
-                  0x006f70                  _BUTTON_Enable
+                  0x0067fe                  _DRV_SPI_Initialize
+                  0x006904                  _DRV_SPI_Deinitialize
+                  0x006914                  _DRV_SPI_Put
+                  0x006944                  _DRV_SPI_PutBuffer
+                  0x0069f0                  _DRV_SPI_Get
+                  0x006a1c                  _DRV_SPI_GetBuffer
+                  0x006ad4                  _DRV_SPI_Lock
+                  0x006afc                  _DRV_SPI_Unlock
+                  0x006bf2                  _LCD_PutChar
+                  0x006c66                  _LCD_PutString
+                  0x006c86                  _LCD_ClearScreen
+                  0x006cac                  _LCD_Initialize
+                  0x006cea                  _LCD_CursorEnable
+                  0x006d06                  _ADC_Read10bit
+                  0x006d2e                  _ADC_ReadPercentage
+                  0x006d4c                  _ADC_ChannelEnable
+                  0x006d64                  _ADC_SetConfiguration
+                  0x006dd2                  _TIMER_CancelTick
+                  0x006ddc                  _TIMER_RequestTick
+                  0x006df4                  _TIMER_SetConfiguration
+                  0x006e4e                  __T3Interrupt
+                  0x006e90                  _SYSTEM_Initialize
+                  0x006eac                  _USER_SdSpiConfigurePins_1
+                  0x006ed0                  _USER_SpiConfigurePins_2
+                  0x006ef2                  _USER_SdSpiSetCs_1
+                  0x006f02                  _USER_SdSpiGetCd_1
+                  0x006f06                  _USER_SdSpiGetWp_1
+                  0x006f0a                  __USB1Interrupt
+                  0x006fbe                  _LED_On
+                  0x006fd0                  _LED_Off
+                  0x006fe2                  _LED_Toggle
+                  0x007018                  _LED_Get
+                  0x00703a                  _LED_Enable
+                  0x00704c                  _main
+                  0x007084                  _USB_ApplicationEventHandler
+                  0x0070b8                  _USBSleepOnSuspend
+                  0x0070ee                  _BUTTON_IsPressed
+                  0x00710e                  _BUTTON_Enable
 
 External Symbols in Program Memory (by name):
 
-                  0x006bd0                  _ADC_ChannelEnable
-                  0x006b8a                  _ADC_Read10bit
-                  0x006bb2                  _ADC_ReadPercentage
-                  0x006be8                  _ADC_SetConfiguration
+                  0x006d4c                  _ADC_ChannelEnable
+                  0x006d06                  _ADC_Read10bit
+                  0x006d2e                  _ADC_ReadPercentage
+                  0x006d64                  _ADC_SetConfiguration
                   0x006404                  _APP_HostHIDKeyboardInitialize
                   0x0066c4                  _APP_HostHIDKeyboardReportParser
                   0x0065e6                  _APP_HostHIDKeyboardTasks
-                  0x006f70                  _BUTTON_Enable
-                  0x006f50                  _BUTTON_IsPressed
-                  0x006a7c                  _DRV_SPI_Deinitialize
-                  0x006af4                  _DRV_SPI_Get
-                  0x006b0c                  _DRV_SPI_GetBuffer
-                  0x0069f8                  _DRV_SPI_Initialize
-                  0x006b6c                  _DRV_SPI_Lock
-                  0x006a84                  _DRV_SPI_Put
-                  0x006a9c                  _DRV_SPI_PutBuffer
-                  0x006b82                  _DRV_SPI_Unlock
+                  0x00710e                  _BUTTON_Enable
+                  0x0070ee                  _BUTTON_IsPressed
+                  0x006904                  _DRV_SPI_Deinitialize
+                  0x0069f0                  _DRV_SPI_Get
+                  0x006a1c                  _DRV_SPI_GetBuffer
+                  0x0067fe                  _DRV_SPI_Initialize
+                  0x006ad4                  _DRV_SPI_Lock
+                  0x006914                  _DRV_SPI_Put
+                  0x006944                  _DRV_SPI_PutBuffer
+                  0x006afc                  _DRV_SPI_Unlock
                   0x0060c8                  _Delayms
                   0x000a54                  _FILEIO_CacheDirectory
                   0x000744                  _FILEIO_CharToDrive
@@ -449,22 +450,22 @@ External Symbols in Program Memory (by name):
                   0x0010a4                  _FILEIO_ShortFileNameConvert
                   0x001064                  _FILEIO_Tell
                   0x002066                  _FILEIO_Write
-                  0x006978                  _LCD_ClearScreen
-                  0x0069dc                  _LCD_CursorEnable
-                  0x00699e                  _LCD_Initialize
-                  0x0068e4                  _LCD_PutChar
-                  0x006958                  _LCD_PutString
-                  0x006e24                  _LED_Enable
-                  0x006e02                  _LED_Get
-                  0x006dba                  _LED_Off
-                  0x006da8                  _LED_On
-                  0x006dcc                  _LED_Toggle
+                  0x006c86                  _LCD_ClearScreen
+                  0x006cea                  _LCD_CursorEnable
+                  0x006cac                  _LCD_Initialize
+                  0x006bf2                  _LCD_PutChar
+                  0x006c66                  _LCD_PutString
+                  0x00703a                  _LED_Enable
+                  0x007018                  _LED_Get
+                  0x006fd0                  _LED_Off
+                  0x006fbe                  _LED_On
+                  0x006fe2                  _LED_Toggle
                   0x001108                  _ReadRam16bit
                   0x00111a                  _ReadRam32bit
-                  0x006e36                  _SYSTEM_Initialize
-                  0x006c56                  _TIMER_CancelTick
-                  0x006c60                  _TIMER_RequestTick
-                  0x006c78                  _TIMER_SetConfiguration
+                  0x006e90                  _SYSTEM_Initialize
+                  0x006dd2                  _TIMER_CancelTick
+                  0x006ddc                  _TIMER_RequestTick
+                  0x006df4                  _TIMER_SetConfiguration
                   0x002dee                  _USBHostClearEndpointErrors
                   0x002a3c                  _USBHostDeviceSpecificClientDriver
                   0x002a44                  _USBHostDeviceStatus
@@ -497,17 +498,18 @@ External Symbols in Program Memory (by name):
                   0x002d3e                  _USBHostTransferIsComplete
                   0x003242                  _USBHostVbusEvent
                   0x003130                  _USBHostWrite
-                  0x006f1a                  _USBSleepOnSuspend
-                  0x006ee6                  _USB_ApplicationEventHandler
+                  0x0070b8                  _USBSleepOnSuspend
+                  0x007084                  _USB_ApplicationEventHandler
                   0x00439a                  _USB_HostInterruptHandler
-                  0x006e52                  _USER_SdSpiConfigurePins_1
-                  0x006e86                  _USER_SdSpiGetCd_1
-                  0x006e8a                  _USER_SdSpiGetWp_1
-                  0x006e76                  _USER_SdSpiSetCs_1
+                  0x006eac                  _USER_SdSpiConfigurePins_1
+                  0x006f02                  _USER_SdSpiGetCd_1
+                  0x006f06                  _USER_SdSpiGetWp_1
+                  0x006ef2                  _USER_SdSpiSetCs_1
+                  0x006ed0                  _USER_SpiConfigurePins_2
                   0x006410                  _Write
                   0x0002d2                  __DefaultInterrupt
-                  0x006cd2                  __T3Interrupt
-                  0x006e8e                  __USB1Interrupt
+                  0x006e4e                  __T3Interrupt
+                  0x006f0a                  __USB1Interrupt
                   0x005772                  __USBHostHID_FreeRptDecriptorDataMem
                   0x0049d4                  __USBHostHID_Parse_Report
                   0x0057f4                  __USBHostHID_ResetStateJump
@@ -539,7 +541,7 @@ External Symbols in Program Memory (by name):
                   0x0006c9                  _gLongFileNameCharacters
                   0x0006dc                  _gSdDrive
                   0x0006b8                  _gShortFileNameCharacters
-                  0x006eae                  _main
+                  0x00704c                  _main
                   0x00033a                  _malloc
                   0x0004ea                  _memcmp
                   0x00051e                  _memcpy
@@ -663,24 +665,24 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000      0x1506c
+.debug_info       0x000000      0x1587c
  *(.debug_info)
- .debug_info      0x000000        0xbf9 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
- .debug_info      0x000bf9       0x4070 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
- .debug_info      0x004c69        0xec3 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
- .debug_info      0x005b2c        0x80c build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
- .debug_info      0x006338        0xc96 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
- .debug_info      0x006fce        0x2fb build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
- .debug_info      0x0072c9        0x465 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
- .debug_info      0x00772e        0x4da build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
- .debug_info      0x007c08        0xa81 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
- .debug_info      0x008689        0x427 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
- .debug_info      0x008ab0       0x37d2 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
- .debug_info      0x00c282       0x21a1 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
- .debug_info      0x00e423       0x1354 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
- .debug_info      0x00f777       0x38c7 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
- .debug_info      0x01303e       0x1616 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
- .debug_info      0x014654        0xa18 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+ .debug_info      0x000000        0xef0 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+ .debug_info      0x000ef0       0x4070 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
+ .debug_info      0x004f60        0xec3 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+ .debug_info      0x005e23        0x80c build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
+ .debug_info      0x00662f        0xc96 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+ .debug_info      0x0072c5        0x2fb build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+ .debug_info      0x0075c0        0x465 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
+ .debug_info      0x007a25        0x4da build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+ .debug_info      0x007eff        0xa81 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+ .debug_info      0x008980        0x427 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+ .debug_info      0x008da7       0x37d2 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
+ .debug_info      0x00c579       0x21a1 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
+ .debug_info      0x00e71a       0x1354 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
+ .debug_info      0x00fa6e       0x38c7 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
+ .debug_info      0x013335       0x1616 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
+ .debug_info      0x01494b        0xf31 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000       0x1ab4
@@ -702,59 +704,59 @@ __CONFIG1
  .debug_abbrev    0x001660        0x291 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
  .debug_abbrev    0x0018f1        0x1c3 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
 
-.debug_line       0x000000       0xa02a
+.debug_line       0x000000       0xa32b
  *(.debug_line)
- .debug_line      0x000000        0x269 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
- .debug_line      0x000269        0x6bf build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
- .debug_line      0x000928        0x21d build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
- .debug_line      0x000b45         0xc7 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
- .debug_line      0x000c0c        0x2e2 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
- .debug_line      0x000eee        0x13e build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
- .debug_line      0x00102c        0x494 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
- .debug_line      0x0014c0        0x1e6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
- .debug_line      0x0016a6        0x294 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
- .debug_line      0x00193a        0x152 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
- .debug_line      0x001a8c       0x2ec4 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
- .debug_line      0x004950        0xe74 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
- .debug_line      0x0057c4        0xee3 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
- .debug_line      0x0066a7       0x27cf build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
- .debug_line      0x008e76        0xcaf build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
- .debug_line      0x009b25        0x505 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+ .debug_line      0x000000        0x29b build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+ .debug_line      0x00029b        0x6bf build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
+ .debug_line      0x00095a        0x21d build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+ .debug_line      0x000b77         0xc7 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
+ .debug_line      0x000c3e        0x2e2 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+ .debug_line      0x000f20        0x13e build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+ .debug_line      0x00105e        0x494 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
+ .debug_line      0x0014f2        0x1e6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+ .debug_line      0x0016d8        0x294 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+ .debug_line      0x00196c        0x152 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+ .debug_line      0x001abe       0x2ec4 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
+ .debug_line      0x004982        0xe74 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
+ .debug_line      0x0057f6        0xee3 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
+ .debug_line      0x0066d9       0x27cf build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
+ .debug_line      0x008ea8        0xcaf build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
+ .debug_line      0x009b57        0x7d4 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
 
-.debug_frame      0x000000        0xc50
+.debug_frame      0x000000        0xc60
  *(.debug_frame)
- .debug_frame     0x000000         0x74 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
- .debug_frame     0x000074         0x74 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
- .debug_frame     0x0000e8         0x34 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
- .debug_frame     0x00011c         0x54 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
- .debug_frame     0x000170         0x34 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
- .debug_frame     0x0001a4         0xc4 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
- .debug_frame     0x000268         0x64 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
- .debug_frame     0x0002cc         0x54 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
- .debug_frame     0x000320         0x24 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
- .debug_frame     0x000344        0x264 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
- .debug_frame     0x0005a8        0x168 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
- .debug_frame     0x000710         0x84 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
- .debug_frame     0x000794        0x334 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
- .debug_frame     0x000ac8         0xf4 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
- .debug_frame     0x000bbc         0x94 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+ .debug_frame     0x000000         0x84 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+ .debug_frame     0x000084         0x74 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
+ .debug_frame     0x0000f8         0x34 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+ .debug_frame     0x00012c         0x54 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+ .debug_frame     0x000180         0x34 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+ .debug_frame     0x0001b4         0xc4 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
+ .debug_frame     0x000278         0x64 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+ .debug_frame     0x0002dc         0x54 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+ .debug_frame     0x000330         0x24 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+ .debug_frame     0x000354        0x264 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
+ .debug_frame     0x0005b8        0x168 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
+ .debug_frame     0x000720         0x84 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
+ .debug_frame     0x0007a4        0x334 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
+ .debug_frame     0x000ad8         0xf4 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
+ .debug_frame     0x000bcc         0x94 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
 
-.debug_str        0x000000        0xb04
+.debug_str        0x000000        0xb5a
  *(.debug_str)
- .debug_str       0x000000         0x47 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
- .debug_str       0x000047         0xd0 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
- .debug_str       0x000117         0x2a build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
- .debug_str       0x000141         0x54 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
- .debug_str       0x000195         0x14 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
- .debug_str       0x0001a9         0x13 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
- .debug_str       0x0001bc         0x34 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
- .debug_str       0x0001f0         0x1e build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
- .debug_str       0x00020e        0x23e build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
- .debug_str       0x00044c        0x1bf build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
- .debug_str       0x00060b         0xd8 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
- .debug_str       0x0006e3        0x2f8 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
- .debug_str       0x0009db         0xd0 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
- .debug_str       0x000aab         0x59 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+ .debug_str       0x000000         0x5b build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+ .debug_str       0x00005b         0xd0 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
+ .debug_str       0x00012b         0x2a build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+ .debug_str       0x000155         0x54 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+ .debug_str       0x0001a9         0x14 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+ .debug_str       0x0001bd         0x13 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+ .debug_str       0x0001d0         0x34 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+ .debug_str       0x000204         0x1e build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+ .debug_str       0x000222        0x23e build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
+ .debug_str       0x000460        0x1bf build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
+ .debug_str       0x00061f         0xd8 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
+ .debug_str       0x0006f7        0x2f8 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
+ .debug_str       0x0009ef         0xd0 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
+ .debug_str       0x000abf         0x9b build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
 
 .debug_loc
  *(.debug_loc)
@@ -763,40 +765,40 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000       0x1211
+                  0x000000       0x122d
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x9b build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+                  0x000000         0xb7 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
  .debug_pubnames
-                  0x00009b         0x7f build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
+                  0x0000b7         0x7f build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
  .debug_pubnames
-                  0x00011a         0x62 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+                  0x000136         0x62 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
  .debug_pubnames
-                  0x00017c         0x33 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
+                  0x000198         0x33 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
  .debug_pubnames
-                  0x0001af         0x6a build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+                  0x0001cb         0x6a build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
  .debug_pubnames
-                  0x000219         0x39 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+                  0x000235         0x39 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
  .debug_pubnames
-                  0x000252         0x70 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
+                  0x00026e         0x70 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
  .debug_pubnames
-                  0x0002c2         0x53 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+                  0x0002de         0x53 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
  .debug_pubnames
-                  0x000315         0x76 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+                  0x000331         0x76 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
  .debug_pubnames
-                  0x00038b         0x28 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+                  0x0003a7         0x28 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
  .debug_pubnames
-                  0x0003b3        0x40b build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
+                  0x0003cf        0x40b build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
  .debug_pubnames
-                  0x0007be        0x1e7 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
+                  0x0007da        0x1e7 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
  .debug_pubnames
-                  0x0009a5         0x7c build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
+                  0x0009c1         0x7c build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
  .debug_pubnames
-                  0x000a21        0x56d build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
+                  0x000a3d        0x56d build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
  .debug_pubnames
-                  0x000f8e        0x1d1 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
+                  0x000faa        0x1d1 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
  .debug_pubnames
-                  0x00115f         0xb2 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+                  0x00117b         0xb2 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -851,7 +853,7 @@ __CONFIG1
                   0x00001e          0x4 LONG 0x2d2 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x2d2 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000022          0x4 LONG 0x2d2 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000024          0x4 LONG 0x6cd2 DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000024          0x4 LONG 0x6e4e DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x2d2 DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x2d2 DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00002a          0x4 LONG 0x2d2 DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -929,7 +931,7 @@ __CONFIG1
                   0x0000ba          0x4 LONG 0x2d2 DEFINED (__Interrupt83)?ABSOLUTE (__Interrupt83):ABSOLUTE (__DefaultInterrupt)
                   0x0000bc          0x4 LONG 0x2d2 DEFINED (__Interrupt84)?ABSOLUTE (__Interrupt84):ABSOLUTE (__DefaultInterrupt)
                   0x0000be          0x4 LONG 0x2d2 DEFINED (__Interrupt85)?ABSOLUTE (__Interrupt85):ABSOLUTE (__DefaultInterrupt)
-                  0x0000c0          0x4 LONG 0x6e8e DEFINED (__USB1Interrupt)?ABSOLUTE (__USB1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c0          0x4 LONG 0x6f0a DEFINED (__USB1Interrupt)?ABSOLUTE (__USB1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000c2          0x4 LONG 0x2d2 DEFINED (__Interrupt87)?ABSOLUTE (__Interrupt87):ABSOLUTE (__DefaultInterrupt)
                   0x0000c4          0x4 LONG 0x2d2 DEFINED (__Interrupt88)?ABSOLUTE (__Interrupt88):ABSOLUTE (__DefaultInterrupt)
                   0x0000c6          0x4 LONG 0x2d2 DEFINED (__Interrupt89)?ABSOLUTE (__Interrupt89):ABSOLUTE (__DefaultInterrupt)
@@ -979,7 +981,7 @@ __CONFIG1
                   0x00011e          0x4 LONG 0x2d2 DEFINED (__AltIC2Interrupt)?ABSOLUTE (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000120          0x4 LONG 0x2d2 DEFINED (__AltOC2Interrupt)?ABSOLUTE (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000122          0x4 LONG 0x2d2 DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000124          0x4 LONG 0x6cd2 DEFINED (__AltT3Interrupt)?ABSOLUTE (__AltT3Interrupt):DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000124          0x4 LONG 0x6e4e DEFINED (__AltT3Interrupt)?ABSOLUTE (__AltT3Interrupt):DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000126          0x4 LONG 0x2d2 DEFINED (__AltSPI1ErrInterrupt)?ABSOLUTE (__AltSPI1ErrInterrupt):DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000128          0x4 LONG 0x2d2 DEFINED (__AltSPI1Interrupt)?ABSOLUTE (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00012a          0x4 LONG 0x2d2 DEFINED (__AltU1RXInterrupt)?ABSOLUTE (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1057,7 +1059,7 @@ __CONFIG1
                   0x0001ba          0x4 LONG 0x2d2 DEFINED (__AltInterrupt83)?ABSOLUTE (__AltInterrupt83):DEFINED (__Interrupt83)?ABSOLUTE (__Interrupt83):ABSOLUTE (__DefaultInterrupt)
                   0x0001bc          0x4 LONG 0x2d2 DEFINED (__AltInterrupt84)?ABSOLUTE (__AltInterrupt84):DEFINED (__Interrupt84)?ABSOLUTE (__Interrupt84):ABSOLUTE (__DefaultInterrupt)
                   0x0001be          0x4 LONG 0x2d2 DEFINED (__AltInterrupt85)?ABSOLUTE (__AltInterrupt85):DEFINED (__Interrupt85)?ABSOLUTE (__Interrupt85):ABSOLUTE (__DefaultInterrupt)
-                  0x0001c0          0x4 LONG 0x6e8e DEFINED (__AltUSB1Interrupt)?ABSOLUTE (__AltUSB1Interrupt):DEFINED (__USB1Interrupt)?ABSOLUTE (__USB1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0001c0          0x4 LONG 0x6f0a DEFINED (__AltUSB1Interrupt)?ABSOLUTE (__AltUSB1Interrupt):DEFINED (__USB1Interrupt)?ABSOLUTE (__USB1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0001c2          0x4 LONG 0x2d2 DEFINED (__AltInterrupt87)?ABSOLUTE (__AltInterrupt87):DEFINED (__Interrupt87)?ABSOLUTE (__Interrupt87):ABSOLUTE (__DefaultInterrupt)
                   0x0001c4          0x4 LONG 0x2d2 DEFINED (__AltInterrupt88)?ABSOLUTE (__AltInterrupt88):DEFINED (__Interrupt88)?ABSOLUTE (__Interrupt88):ABSOLUTE (__DefaultInterrupt)
                   0x0001c6          0x4 LONG 0x2d2 DEFINED (__AltInterrupt89)?ABSOLUTE (__AltInterrupt89):DEFINED (__Interrupt89)?ABSOLUTE (__Interrupt89):ABSOLUTE (__DefaultInterrupt)
@@ -1920,106 +1922,106 @@ LOAD heap
 LOAD data_init
 
 .debug_pubtypes
-                  0x000168       0x1956
+                  0x000168       0x1a03
  .debug_pubtypes
-                  0x000168         0xed build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+                  0x000168        0x12b build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
  .debug_pubtypes
-                  0x000255        0x27a build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
+                  0x000293        0x27a build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
  .debug_pubtypes
-                  0x0004cf        0x1ea build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+                  0x00050d        0x1ea build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
  .debug_pubtypes
-                  0x0006b9         0xc1 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
+                  0x0006f7         0xc1 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
  .debug_pubtypes
-                  0x00077a        0x119 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+                  0x0007b8        0x119 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
  .debug_pubtypes
-                  0x000893         0x5b build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+                  0x0008d1         0x5b build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
  .debug_pubtypes
-                  0x0008ee         0x2b build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
+                  0x00092c         0x2b build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
  .debug_pubtypes
-                  0x000919         0x56 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+                  0x000957         0x56 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
  .debug_pubtypes
-                  0x00096f         0xda build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+                  0x0009ad         0xda build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
  .debug_pubtypes
-                  0x000a49         0x6f build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+                  0x000a87         0x6f build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
  .debug_pubtypes
-                  0x000ab8        0x4d2 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
+                  0x000af6        0x4d2 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
  .debug_pubtypes
-                  0x000f8a        0x349 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
+                  0x000fc8        0x349 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
  .debug_pubtypes
-                  0x0012d3        0x1f8 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
+                  0x001311        0x1f8 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
  .debug_pubtypes
-                  0x0014cb        0x379 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
+                  0x001509        0x379 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
  .debug_pubtypes
-                  0x001844        0x1b8 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
+                  0x001882        0x1b8 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
  .debug_pubtypes
-                  0x0019fc         0xc2 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+                  0x001a3a        0x131 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
 
 __c30_signature
-                  0x001abe         0xa2
+                  0x001b6b         0xa2
  __c30_signature
-                  0x001abe          0x6 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+                  0x001b6b          0x6 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
  __c30_signature
-                  0x001ac4          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
+                  0x001b71          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/app_host_hid_keyboard.o
  __c30_signature
-                  0x001aca          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+                  0x001b77          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
  __c30_signature
-                  0x001ad0          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
+                  0x001b7d          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/usb_config.o
  __c30_signature
-                  0x001ad6          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+                  0x001b83          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
  __c30_signature
-                  0x001adc          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+                  0x001b89          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
  __c30_signature
-                  0x001ae2          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
+                  0x001b8f          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
  __c30_signature
-                  0x001ae8          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+                  0x001b95          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
  __c30_signature
-                  0x001aee          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+                  0x001b9b          0x6 build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
  __c30_signature
-                  0x001af4          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+                  0x001ba1          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
  __c30_signature
-                  0x001afa          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
+                  0x001ba7          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
  __c30_signature
-                  0x001b00          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
+                  0x001bad          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
  __c30_signature
-                  0x001b06          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
+                  0x001bb3          0x6 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid_parser.o
  __c30_signature
-                  0x001b0c          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
+                  0x001bb9          0x6 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
  __c30_signature
-                  0x001b12          0x6 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
+                  0x001bbf          0x6 build/PIC24FJ64GB004_PIM/production/_ext/691844211/sd_spi.o
  __c30_signature
-                  0x001b18          0x6 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+                  0x001bc5          0x6 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
  __c30_signature
-                  0x001b1e          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+                  0x001bcb          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x001b24          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                  0x001bd1          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x001b2a          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
+                  0x001bd7          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
  __c30_signature
-                  0x001b30          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
+                  0x001bdd          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
  __c30_signature
-                  0x001b36          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcmp.eo)
+                  0x001be3          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcmp.eo)
  __c30_signature
-                  0x001b3c          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.eo)
+                  0x001be9          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.eo)
  __c30_signature
-                  0x001b42          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
+                  0x001bef          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
  __c30_signature
-                  0x001b48          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strlen.eo)
+                  0x001bf5          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strlen.eo)
  __c30_signature
-                  0x001b4e          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strncpy.eo)
+                  0x001bfb          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(strncpy.eo)
  __c30_signature
-                  0x001b54          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
+                  0x001c01          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
  __c30_signature
-                  0x001b5a          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
+                  0x001c07          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
 
-_0452C000555a8e94
+_044C1060555d08bb
                     0x0800        0x200
- _0452C000555a8e94
+ _044C1060555d08bb
                     0x0800        0x200 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
                     0x0800                  _gDataBuffer
 
-_0452C1E0555a8e94
+_044C1240555d08bb
                     0x0a00        0x200
- _0452C1E0555a8e94
+ _044C1240555d08bb
                     0x0a00        0x200 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
                     0x0a00                  _gFATBuffer
 
@@ -2039,14 +2041,14 @@ _0452C1E0555a8e94
                     0x0cb0                  _gMediaSectorSize
                     0x0cb2                  _gSDMode
 
-_044FBF60555a8e93
+_04505000555d08b7
                     0x0ce8         0x18
- _044FBF60555a8e93
+ _04505000555d08b7
                     0x0ce8         0x18 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host_hid.o
 
-_045F5D20555a8e93
+_046A4D80555d08b7
                     0x0e00         0x10
- _045F5D20555a8e93
+ _046A4D80555d08b7
                     0x0e00         0x10 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_host.o
 
 .nbss               0x0d00         0x6c
@@ -2118,7 +2120,7 @@ _045F5D20555a8e93
  .const             0x86d2         0x18 build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
                     0x86dc                  _gSdDrive
 
-.text             0x0006ea       0x662a
+.text             0x0006ea       0x6840
  .text            0x0006ea       0x2352 build/PIC24FJ64GB004_PIM/production/_ext/1706142600/fileio.o
                   0x0006ea                  _FILEIO_RegisterTimestampGet
                   0x0006ee                  _FILEIO_Initialize
@@ -2249,54 +2251,55 @@ _045F5D20555a8e93
                   0x006410                  _Write
                   0x0065e6                  _APP_HostHIDKeyboardTasks
                   0x0066c4                  _APP_HostHIDKeyboardReportParser
- .text            0x0067fe        0x1fa build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
-                  0x0068e4                  _LCD_PutChar
-                  0x006958                  _LCD_PutString
-                  0x006978                  _LCD_ClearScreen
-                  0x00699e                  _LCD_Initialize
-                  0x0069dc                  _LCD_CursorEnable
- .text            0x0069f8        0x192 build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
-                  0x0069f8                  _DRV_SPI_Initialize
-                  0x006a7c                  _DRV_SPI_Deinitialize
-                  0x006a84                  _DRV_SPI_Put
-                  0x006a9c                  _DRV_SPI_PutBuffer
-                  0x006af4                  _DRV_SPI_Get
-                  0x006b0c                  _DRV_SPI_GetBuffer
-                  0x006b6c                  _DRV_SPI_Lock
-                  0x006b82                  _DRV_SPI_Unlock
- .text            0x006b8a         0xcc build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
-                  0x006b8a                  _ADC_Read10bit
-                  0x006bb2                  _ADC_ReadPercentage
-                  0x006bd0                  _ADC_ChannelEnable
-                  0x006be8                  _ADC_SetConfiguration
- .text            0x006c56         0xbe build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
-                  0x006c56                  _TIMER_CancelTick
-                  0x006c60                  _TIMER_RequestTick
-                  0x006c78                  _TIMER_SetConfiguration
-                  0x006cd2                  __T3Interrupt
+ .text            0x0067fe        0x30e build/PIC24FJ64GB004_PIM/production/_ext/368788181/drv_spi_16bit.o
+                  0x0067fe                  _DRV_SPI_Initialize
+                  0x006904                  _DRV_SPI_Deinitialize
+                  0x006914                  _DRV_SPI_Put
+                  0x006944                  _DRV_SPI_PutBuffer
+                  0x0069f0                  _DRV_SPI_Get
+                  0x006a1c                  _DRV_SPI_GetBuffer
+                  0x006ad4                  _DRV_SPI_Lock
+                  0x006afc                  _DRV_SPI_Unlock
+ .text            0x006b0c        0x1fa build/PIC24FJ64GB004_PIM/production/_ext/17349277/lcd.o
+                  0x006bf2                  _LCD_PutChar
+                  0x006c66                  _LCD_PutString
+                  0x006c86                  _LCD_ClearScreen
+                  0x006cac                  _LCD_Initialize
+                  0x006cea                  _LCD_CursorEnable
+ .text            0x006d06         0xcc build/PIC24FJ64GB004_PIM/production/_ext/17349277/adc.o
+                  0x006d06                  _ADC_Read10bit
+                  0x006d2e                  _ADC_ReadPercentage
+                  0x006d4c                  _ADC_ChannelEnable
+                  0x006d64                  _ADC_SetConfiguration
+ .text            0x006dd2         0xbe build/PIC24FJ64GB004_PIM/production/_ext/17349277/timer_1ms.o
+                  0x006dd2                  _TIMER_CancelTick
+                  0x006ddc                  _TIMER_RequestTick
+                  0x006df4                  _TIMER_SetConfiguration
+                  0x006e4e                  __T3Interrupt
+ .text            0x006e90         0x9a build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
+                  0x006e90                  _SYSTEM_Initialize
+                  0x006eac                  _USER_SdSpiConfigurePins_1
+                  0x006ed0                  _USER_SpiConfigurePins_2
+                  0x006ef2                  _USER_SdSpiSetCs_1
+                  0x006f02                  _USER_SdSpiGetCd_1
+                  0x006f06                  _USER_SdSpiGetWp_1
+                  0x006f0a                  __USB1Interrupt
 
-.dinit            0x006d14         0x94
- .dinit           0x006d14         0x94 data_init
+.dinit            0x006f2a         0x94
+ .dinit           0x006f2a         0x94 data_init
 
-.text             0x006da8        0x1da
- .text            0x006da8         0x8e build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
-                  0x006da8                  _LED_On
-                  0x006dba                  _LED_Off
-                  0x006dcc                  _LED_Toggle
-                  0x006e02                  _LED_Get
-                  0x006e24                  _LED_Enable
- .text            0x006e36         0x78 build/PIC24FJ64GB004_PIM/production/_ext/621193660/system.o
-                  0x006e36                  _SYSTEM_Initialize
-                  0x006e52                  _USER_SdSpiConfigurePins_1
-                  0x006e76                  _USER_SdSpiSetCs_1
-                  0x006e86                  _USER_SdSpiGetCd_1
-                  0x006e8a                  _USER_SdSpiGetWp_1
-                  0x006e8e                  __USB1Interrupt
- .text            0x006eae         0x6c build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
-                  0x006eae                  _main
-                  0x006ee6                  _USB_ApplicationEventHandler
- .text            0x006f1a         0x36 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
-                  0x006f1a                  _USBSleepOnSuspend
- .text            0x006f50         0x32 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
-                  0x006f50                  _BUTTON_IsPressed
-                  0x006f70                  _BUTTON_Enable
+.text             0x006fbe        0x162
+ .text            0x006fbe         0x8e build/PIC24FJ64GB004_PIM/production/_ext/17349277/leds.o
+                  0x006fbe                  _LED_On
+                  0x006fd0                  _LED_Off
+                  0x006fe2                  _LED_Toggle
+                  0x007018                  _LED_Get
+                  0x00703a                  _LED_Enable
+ .text            0x00704c         0x6c build/PIC24FJ64GB004_PIM/production/_ext/1360937237/main.o
+                  0x00704c                  _main
+                  0x007084                  _USB_ApplicationEventHandler
+ .text            0x0070b8         0x36 build/PIC24FJ64GB004_PIM/production/_ext/838585624/usb_hal_pic24.o
+                  0x0070b8                  _USBSleepOnSuspend
+ .text            0x0070ee         0x32 build/PIC24FJ64GB004_PIM/production/_ext/17349277/buttons.o
+                  0x0070ee                  _BUTTON_IsPressed
+                  0x00710e                  _BUTTON_Enable
