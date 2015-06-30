@@ -23,6 +23,7 @@
 #include <usb/usb_host_hid.h>
 #include "fileio/fileio.h"
 #include "driver/fileio/sd_spi.h"
+#include "uart1.h"
 #include <string.h>
 
 #include <stdint.h>
@@ -601,6 +602,7 @@ static void App_ProcessInputReport(void)
                 else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RETURN_ENTER)
                 {
                     LED_Toggle(LED_USB_NOTIFY);
+                    UART1PutChar('X');
                     Write("\r\n", 2);
                 }
                 else if( (key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_SHIFT) ||

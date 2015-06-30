@@ -70,7 +70,6 @@ bool USER_SdSpiGetCd_1 (void);
 bool USER_SdSpiGetWp_1 (void);
 // User-defined function to initialize tristate bits for CS, CD, and WP
 void USER_SdSpiConfigurePins_1 (void);
-void USER_SpiConfigurePins_2 (void);
 
 /*********************************************************************
 * Function: void SYSTEM_Tasks(void)

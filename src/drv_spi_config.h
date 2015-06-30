@@ -37,7 +37,7 @@
 // Enable SPI channel 1
 #define DRV_SPI_CONFIG_CHANNEL_1_ENABLE
 // Enable SPI channel 2
-#define DRV_SPI_CONFIG_CHANNEL_2_ENABLE
+//#define DRV_SPI_CONFIG_CHANNEL_2_ENABLE
 // Enable SPI channel 3
 //#define DRV_SPI_CONFIG_CHANNEL_3_ENABLE
 // Enable SPI channel 4

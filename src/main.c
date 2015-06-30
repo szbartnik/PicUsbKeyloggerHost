@@ -1,27 +1,6 @@
-/********************************************************************
- Software License Agreement:
-
- The software supplied herewith by Microchip Technology Incorporated
- (the "Company") for its PIC(R) Microcontroller is intended and
- supplied to you, the Company's customer, for use solely and
- exclusively on Microchip PIC Microcontroller products. The
- software is owned by the Company and/or its supplier, and is
- protected under applicable copyright laws. All rights are reserved.
- Any use in violation of the foregoing restrictions may subject the
- user to criminal sanctions under applicable laws, as well as to
- civil liability for the breach of the terms and conditions of this
- license.
-
- THIS SOFTWARE IS PROVIDED IN AN "AS IS" CONDITION. NO WARRANTIES,
- WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED
- TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- PARTICULAR PURPOSE APPLY TO THIS SOFTWARE. THE COMPANY SHALL NOT,
- IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL OR
- CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
- *******************************************************************/
-
-/** INCLUDES *******************************************************/
-
+#include "timer.h"
+#include "adc.h"
+#include "uart1.h"
 #include "fileio/fileio.h"
 #include "driver/fileio/sd_spi.h"
 #include <string.h>
@@ -110,6 +89,23 @@ MAIN_RETURN main(void)
     } else return;
     
     Write("started\r\n", 9);
+    
+    // #########################################
+    // # UART CONFIGURATION 
+    // #########################################
+    //OSCCON = 0x2200;	 //Use primary, no divide FCY = 10Mhz/2 = 5Mhz
+    //CLKDIV	=	0x0000;	 //do not divide
+    
+    //Set up I/O Port
+    RPINR18bits.U1RXR = 5; // UART1 RX RP5
+    RPOR3bits.RP6R    =	3; // UART1 TX RP6 (function 3)
+
+    // FCY = 8MHz * 4 / 2 = 16MHz
+    // BRGx = 16*10^6/(16*19200)-1 = 51
+    UART1Init(51);	 //Initiate UART1 to 19200 at 8MHz OSC + PLL
+    Delayms(1000);
+    
+    // #########################################
     
     while(1)
     {
