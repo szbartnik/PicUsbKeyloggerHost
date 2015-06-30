@@ -1,5 +1,4 @@
 #include "timer.h"
-#include "adc.h"
 #include "uart1.h"
 #include "fileio/fileio.h"
 #include "driver/fileio/sd_spi.h"
