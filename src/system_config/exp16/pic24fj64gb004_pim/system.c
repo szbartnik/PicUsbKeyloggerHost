@@ -113,9 +113,9 @@ void SYSTEM_Initialize( SYSTEM_STATE state )
 void USER_SdSpiConfigurePins_1 (void)
 {
     //Initialize the SPI
-    RPINR20bits.SDI1R = 15;  // data  input
-    RPOR6bits.RP13R = 7;     // data  output
-    RPOR7bits.RP14R = 8;     // clock output
+    RPINR20bits.SDI1R = 15;  // RP15 - data  input
+    RPOR6bits.RP13R = 7;     // RP13 - data  output
+    RPOR7bits.RP14R = 8;     // RP14 - clock output
     
     // Deassert the chip select pin
     LATBbits.LATB9 = 1;
@@ -126,9 +126,9 @@ void USER_SdSpiConfigurePins_1 (void)
 void USER_SpiConfigurePins_2 (void)
 {
     //Initialize the SPI
-    RPINR20bits.SDI1R = 6;   // data  input
-    RPOR2bits.RP5R = 10;     // data  output
-    RPOR1bits.RP3R = 11;     // clock output
+    RPINR22bits.SDI2R = 6;   // RP6 - data input
+    RPOR2bits.RP5R = 10;     // RP5 - data  output
+    RPOR1bits.RP3R = 11;     // RP3 - clock output
 }
 
 inline void USER_SdSpiSetCs_1(uint8_t a)
