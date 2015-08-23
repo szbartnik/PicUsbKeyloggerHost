@@ -595,6 +595,8 @@ static void App_ProcessInputReport(void)
             {
                 HID_USER_DATA_SIZE key = keyboard.keys.normal.parsed.newData[i];
                
+                UART1PutChar(key);
+                
                 if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_ESCAPE)
                 {
                     LED_Toggle(LED_USB_NOTIFY);
@@ -602,7 +604,6 @@ static void App_ProcessInputReport(void)
                 else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RETURN_ENTER)
                 {
                     LED_Toggle(LED_USB_NOTIFY);
-                    UART1PutChar('X');
                     Write("\r\n", 2);
                 }
                 else if( (key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_SHIFT) ||
