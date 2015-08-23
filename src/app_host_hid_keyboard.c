@@ -601,7 +601,7 @@ static void App_ProcessInputReport(void)
                 }
                 else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RETURN_ENTER)
                 {
-                     LED_Toggle(LED_USB_NOTIFY);
+                    LED_Toggle(LED_USB_NOTIFY);
                     UART1PutChar('X');
                     Write("\r\n", 2);
                 }
