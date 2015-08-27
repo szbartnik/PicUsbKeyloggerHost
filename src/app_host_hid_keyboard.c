@@ -609,6 +609,34 @@ static void App_ProcessInputReport(void)
         shift = true;
         sthToSend = true;
     }
+    
+    if(keyboard.keys.modifier.parsed.data[USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_ALT - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL] == 1)
+    {
+        sthToSend = true;
+        Write("#LALT#\r\n", 8);
+        LED_Toggle(LED_USB_NOTIFY);
+    }
+
+    if(keyboard.keys.modifier.parsed.data[USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_ALT - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL] == 1)
+    {
+        sthToSend = true;
+        Write("#RALT#\r\n", 8);
+        LED_Toggle(LED_USB_NOTIFY);
+    }
+    
+    if(keyboard.keys.modifier.parsed.data[USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL] == 1)
+    {
+        sthToSend = true;
+        Write("#RCTRL#\r\n", 9);
+        LED_Toggle(LED_USB_NOTIFY);
+    }
+
+    if(keyboard.keys.modifier.parsed.data[USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_CONTROL - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL] == 1)
+    {
+        sthToSend = true;
+        Write("#RCTRL#\r\n", 9);
+        LED_Toggle(LED_USB_NOTIFY);
+    }
 
     for(i=0; i<keyboard.keys.normal.parsed.details.reportLength ;i++)
     {
@@ -665,16 +693,6 @@ static void App_ProcessInputReport(void)
                 else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_SHIFT)
                 {
                     shift = true;
-                }
-                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_ALT)
-                {
-                    Write("#RALT#\r\n", 8);
-                    LED_Toggle(LED_USB_NOTIFY);
-                }
-                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_ALT)
-                {
-                    Write("#LALT#\r\n", 8);
-                    LED_Toggle(LED_USB_NOTIFY);
                 }
                 else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_DELETE)
                 {
