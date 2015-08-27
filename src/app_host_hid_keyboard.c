@@ -676,7 +676,7 @@ static void App_ProcessInputReport(void)
                     Write("#LALT#\r\n", 8);
                     LED_Toggle(LED_USB_NOTIFY);
                 }
-                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYPAD_BACKSPACE)
+                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_DELETE)
                 {
                     Write("#BSPACE#\r\n", 10);
                     LED_Toggle(LED_USB_NOTIFY);
