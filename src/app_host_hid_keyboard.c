@@ -24,6 +24,7 @@
 #include "fileio/fileio.h"
 #include "driver/fileio/sd_spi.h"
 #include "uart1.h"
+#include "usb/usb_hid.h"
 #include <string.h>
 
 #include <stdint.h>
@@ -639,33 +640,60 @@ static void App_ProcessInputReport(void)
             {
                 keyboard.leds.report.bits.numLock ^= 1;
                 keyboard.leds.updated = true;
+            }else if(keyboard.keys.normal.parsed.newData[i] == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_SCROLL_LOCK)
+            {
+                keyboard.leds.report.bits.scrollLock ^= 1;
+                keyboard.leds.updated = true;
             }else
             {
                 HID_USER_DATA_SIZE key = keyboard.keys.normal.parsed.newData[i];
-               
-                //UART1PutChar(key);
-                
+
                 if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_ESCAPE)
                 {
+                    Write("#ESCAPE#\r\n", 10);
                     LED_Toggle(LED_USB_NOTIFY);
                 }
                 else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RETURN_ENTER)
-                {
+                {                    
+                    Write("#ENTER#\r\n", 9);
                     LED_Toggle(LED_USB_NOTIFY);
-                    Write("\r\n", 2);
                 }
-                else if( (key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_SHIFT) ||
-                         (key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_SHIFT)
-                       )
+                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_SHIFT)
                 {
                     shift = true;
                 }
-                else if( (key == USB_HID_KEYBOARD_KEYPAD_KEYPAD_BACKSPACE) ||
-                         (key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_DELETE)
+                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_SHIFT)
+                {
+                    shift = true;
+                }
+                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_ALT)
+                {
+                    Write("#RALT#\r\n", 8);
+                    LED_Toggle(LED_USB_NOTIFY);
+                }
+                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_ALT)
+                {
+                    Write("#LALT#\r\n", 8);
+                    LED_Toggle(LED_USB_NOTIFY);
+                }
+                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYPAD_BACKSPACE)
+                {
+                    Write("#BSPACE#\r\n", 10);
+                    LED_Toggle(LED_USB_NOTIFY);
+                }
+                else if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_DELETE_FORWARD)
+                {   
+                    Write("#DELETE#\r\n", 10);
+                    LED_Toggle(LED_USB_NOTIFY);
+                }
+                else if( (key >= USB_HID_KEYBOARD_KEYPAD_KEYBOARD_F1) &&
+                         (key <= USB_HID_KEYBOARD_KEYPAD_KEYBOARD_F12)
                        )
                 {
+                    char str[8];
+                    sprintf(str, "#F%d#\r\n", key - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_F1 + 1);
+                    Write(str, key - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_F1 >= 9 ? 7 : 6);
                     LED_Toggle(LED_USB_NOTIFY);
-                    Write("\b", 1);
                 }
                 else if( (key >= USB_HID_KEYBOARD_KEYPAD_KEYBOARD_A) &&
                          (key <= USB_HID_KEYBOARD_KEYPAD_KEYBOARD_Z)
@@ -693,6 +721,7 @@ static void App_ProcessInputReport(void)
                 else
                 {
                     uint8_t index;
+                    bool wasDetected = false;
 
                     for(index = 0; index < sizeof(keyTranslationTable)/sizeof(HID_KEY_TRANSLATION_TABLE_ENTRY); index++)
                     {
@@ -708,7 +737,16 @@ static void App_ProcessInputReport(void)
                                 LED_Toggle(LED_USB_NOTIFY);
                                 Write(&keyTranslationTable[index].unmodified, 1);
                             }
+                            wasDetected = true;
                         }
+                    }
+                    
+                    if(wasDetected == false)
+                    {
+                        char str[15];
+                        sprintf(str, "#KEYCODE%d#\r\n", key);
+                        Write(str, 13);
+                        LED_Toggle(LED_USB_NOTIFY);
                     }
                 }
             }
