@@ -108,6 +108,34 @@ typedef struct
 
 typedef struct
 {
+    union
+    {
+        HID_USER_DATA_SIZE value[7];
+        struct 
+        {
+            HID_USER_DATA_SIZE keys[6];
+            union __attribute__((packed))
+            {
+                uint8_t value;
+                struct __attribute__((packed))
+                {
+                    unsigned leftControl    :1;
+                    unsigned leftShift      :1;
+                    unsigned leftAlt        :1;
+                    unsigned leftGUI        :1;
+                    unsigned rightControl   :1;
+                    unsigned rightShift     :1;
+                    unsigned rightAlt       :1;
+                    unsigned rightGUI       :1;
+                } bits;
+            } modifiers;
+        } data;
+    };
+    
+} MYKEYDATA;
+
+typedef struct
+{
     USB_HID_KEYBOARD_KEYPAD key;
     char unmodified;
     char modified;
@@ -121,6 +149,7 @@ typedef struct
 // *****************************************************************************
 // *****************************************************************************
 
+static MYKEYDATA myKeyData;
 static KEYBOARD keyboard;
 static const HID_KEY_TRANSLATION_TABLE_ENTRY keyTranslationTable[] = 
 {
@@ -288,8 +317,6 @@ void APP_HostHIDKeyboardTasks()
     switch(keyboard.state)
     {
         case DEVICE_NOT_CONNECTED:
-            //PRINT_ClearScreen();
-            //PRINT_String("Attach keyboard\r\n", 17);
             keyboard.state = WAITING_FOR_DEVICE;
             LED_Off(LED_USB_HOST_HID_KEYBOARD_DEVICE_READY);
             break;
@@ -375,6 +402,19 @@ void APP_HostHIDKeyboardTasks()
         default:
             break;
 
+    }
+}
+
+void ParseMyKeyDataModifiersToInputReport(void)
+{
+    unsigned char i;
+    
+    myKeyData.data.modifiers.value = 0;
+    
+    for(i=0;i<sizeof(keyboard.keys.modifier.parsed.data);i++)
+    {
+        if(keyboard.keys.modifier.parsed.data[i] == 1)
+            myKeyData.data.modifiers.value |= (1 << i);
     }
 }
 
@@ -539,6 +579,7 @@ static void App_ProcessInputReport(void)
     uint8_t  i, j;
     bool heldCharacter = false;
     bool shift = false;
+    bool sthToSend = false;
 
    /* process input report received from device */
     USBHostHID_ApiImportData(   keyboard.keys.buffer,
@@ -553,14 +594,19 @@ static void App_ProcessInputReport(void)
                                 &keyboard.keys.normal.parsed.details
                             );
 
+    memcpy(&(myKeyData.data.keys), &(keyboard.keys.normal.parsed.newData), sizeof(myKeyData.data.keys));
+    ParseMyKeyDataModifiersToInputReport();
+
     if(keyboard.keys.modifier.parsed.data[USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_SHIFT - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL] == 1)
     {
         shift = true;
+        sthToSend = true;
     }
 
     if(keyboard.keys.modifier.parsed.data[USB_HID_KEYBOARD_KEYPAD_KEYBOARD_RIGHT_SHIFT - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL] == 1)
     {
         shift = true;
+        sthToSend = true;
     }
 
     for(i=0; i<keyboard.keys.normal.parsed.details.reportLength ;i++)
@@ -569,6 +615,8 @@ static void App_ProcessInputReport(void)
         
         if(keyboard.keys.normal.parsed.newData[i] != 0)
         {
+            sthToSend = true;
+            
             for(j=0; j<keyboard.keys.normal.parsed.details.reportLength ;j++)
             {
                 if(keyboard.keys.normal.parsed.newData[i] == keyboard.keys.normal.parsed.oldData[j])
@@ -595,7 +643,7 @@ static void App_ProcessInputReport(void)
             {
                 HID_USER_DATA_SIZE key = keyboard.keys.normal.parsed.newData[i];
                
-                UART1PutChar(key);
+                //UART1PutChar(key);
                 
                 if(key == USB_HID_KEYBOARD_KEYPAD_KEYBOARD_ESCAPE)
                 {
@@ -668,6 +716,14 @@ static void App_ProcessInputReport(void)
         else
         {
             break;
+        }
+    }
+    
+    if(sthToSend == true)
+    {
+        for(i=0; i<sizeof(MYKEYDATA); i++)
+        {
+            UART1PutChar(myKeyData.value[i]);
         }
     }
 
