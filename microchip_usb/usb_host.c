@@ -56,7 +56,6 @@ CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
 #include "usb.h"
 #include "usb_host_local.h"
 #include "usb_hal_local.h"
-//#include "usb_hal.h"
 
 #ifndef USB_MALLOC
     #define USB_MALLOC(size) malloc(size)

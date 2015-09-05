@@ -10,7 +10,6 @@
         <itemPath>microchip_usb/usb_common.h</itemPath>
         <itemPath>microchip_usb/usb_hal.h</itemPath>
         <itemPath>microchip_usb/usb_hal_local.h</itemPath>
-        <itemPath>microchip_usb/usb_hal_pic24.h</itemPath>
         <itemPath>microchip_usb/usb_hid.h</itemPath>
         <itemPath>microchip_usb/usb_host.h</itemPath>
         <itemPath>microchip_usb/usb_host_cdc.h</itemPath>
@@ -32,13 +31,10 @@
         <itemPath>sd_card/sd_spi_private.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="system_config" projectFiles="true">
-        <itemPath>system_config/adc.h</itemPath>
         <itemPath>system_config/buttons.h</itemPath>
         <itemPath>system_config/io_mapping.h</itemPath>
-        <itemPath>system_config/lcd.h</itemPath>
         <itemPath>system_config/leds.h</itemPath>
         <itemPath>system_config/power.h</itemPath>
-        <itemPath>system_config/print_lcd.h</itemPath>
         <itemPath>system_config/system.h</itemPath>
         <itemPath>system_config/timer_1ms.h</itemPath>
       </logicalFolder>
@@ -55,7 +51,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="microchip_usb" projectFiles="true">
-        <itemPath>microchip_usb/usb_hal_pic24.c</itemPath>
         <itemPath>microchip_usb/usb_host.c</itemPath>
         <itemPath>microchip_usb/usb_host_hid.c</itemPath>
         <itemPath>microchip_usb/usb_host_hid_parser.c</itemPath>
@@ -67,9 +62,7 @@
       </logicalFolder>
       <logicalFolder name="f2" displayName="system_config" projectFiles="true">
         <itemPath>system_config/system.c</itemPath>
-        <itemPath>system_config/adc.c</itemPath>
         <itemPath>system_config/buttons.c</itemPath>
-        <itemPath>system_config/lcd.c</itemPath>
         <itemPath>system_config/leds.c</itemPath>
         <itemPath>system_config/timer_1ms.c</itemPath>
       </logicalFolder>
