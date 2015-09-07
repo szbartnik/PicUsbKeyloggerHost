@@ -1,1 +1,4 @@
-/mplab.x
+dist/
+build/
+debug/
+map.map
