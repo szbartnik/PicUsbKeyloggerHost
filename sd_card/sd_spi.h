@@ -84,6 +84,8 @@ typedef struct
 #define FILEIO_SD_ASYNC_WRITE_ERROR               0xFF
 
 
+static bool sdError = false;
+
 /*****************************************************************************/
 /*                         Function pointer types                            */
 /*****************************************************************************/

@@ -274,24 +274,20 @@ void APP_HostHIDKeyboardInitialize()
 ********************************************************************/
 void Write(const void* buffer, size_t size)
 {
-    FILEIO_OBJECT file;
-    
-    if (FILEIO_Open (&file, "TESTFILE.CSV", FILEIO_OPEN_WRITE | FILEIO_OPEN_READ | FILEIO_OPEN_APPEND | FILEIO_OPEN_CREATE) == FILEIO_RESULT_FAILURE)
-    {
+    if(sdError == true)
         return;
-    }
+    
+    FILEIO_OBJECT file;
+    if (FILEIO_Open (&file, "DATA.TXT", FILEIO_OPEN_WRITE | FILEIO_OPEN_READ | FILEIO_OPEN_APPEND | FILEIO_OPEN_CREATE) == FILEIO_RESULT_FAILURE)
+        return;
 
     // Write some sample data to the card
     if (FILEIO_Write(buffer, 1, size, &file) != size)
-    {
         return;
-    }
 
     // Close the file to save the data
     if (FILEIO_Close (&file) != FILEIO_RESULT_SUCCESS)
-    {
         return;
-    }
 }
 
 void APP_HostHIDKeyboardTasks()

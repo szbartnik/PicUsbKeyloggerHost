@@ -84,8 +84,8 @@ MAIN_RETURN main(void)
         if (FILEIO_DriveMount('A', &gSdDrive, &sdCardMediaParameters) == FILEIO_ERROR_NONE)
         {
             APP_HostHIDKeyboardInitialize();
-        } else return;
-    } else return;
+        } else sdError = true;
+    } else sdError = true;
     
     Write("started\r\n", 9);
     
