@@ -111,10 +111,10 @@ typedef struct
 {
     union
     {
-        HID_USER_DATA_SIZE value[7];
+        HID_USER_DATA_SIZE value[2];
         struct 
         {
-            HID_USER_DATA_SIZE keys[6];
+            HID_USER_DATA_SIZE keys[1];
             union __attribute__((packed))
             {
                 uint8_t value;
@@ -580,7 +580,7 @@ static void App_ProcessInputReport(void)
     uint8_t  i, j;
     bool heldCharacter = false;
     bool shift = false;
-    bool sthToSend = false;
+    bool sthToSend = true;
 
    /* process input report received from device */
     USBHostHID_ApiImportData(   keyboard.keys.buffer,
@@ -595,7 +595,20 @@ static void App_ProcessInputReport(void)
                                 &keyboard.keys.normal.parsed.details
                             );
 
-    memcpy(&(myKeyData.data.keys), &(keyboard.keys.normal.parsed.newData), sizeof(myKeyData.data.keys));
+    myKeyData.data.keys[0] = 0;
+    
+    for(i = sizeof(keyboard.keys.normal.parsed.newData) - 1; i >= 0; i--)
+    {
+        if(i == 0xFF) break;
+
+        if(keyboard.keys.normal.parsed.newData[i] != 0) 
+        {
+            myKeyData.data.keys[0] = keyboard.keys.normal.parsed.newData[i];
+            break;
+        }
+    }
+    
+    //memcpy(&(myKeyData.data.keys), &(keyboard.keys.normal.parsed.newData), sizeof(myKeyData.data.keys));
     ParseMyKeyDataModifiersToInputReport();
 
     if(keyboard.keys.modifier.parsed.data[USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_SHIFT - USB_HID_KEYBOARD_KEYPAD_KEYBOARD_LEFT_CONTROL] == 1)
